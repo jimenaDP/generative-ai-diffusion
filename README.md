@@ -2,8 +2,9 @@
 
 Machine learning project on score-based diffusion models for generating handwritten digits (MNIST), built with PyTorch.
 
-<!-- Add a figure here, e.g. a grid of generated digits:
-![Generated samples](figures/samples.png) -->
+![Reverse diffusion: from noise to digits](figures/reverse_diffusion.png)
+
+*Reverse diffusion process: each row starts from pure noise (left) and ends in a generated digit (right).*
 
 ## What it does
 
@@ -18,33 +19,30 @@ The full method and results are in the [report](report.pdf).
 
 ```text
 .
+├── project.ipynb              # main experiments and results
 ├── report.pdf
 ├── requirements.txt
-├── notebooks/
-│   ├── project.ipynb          # main experiments and results
-│   └── training/              # training notebooks for each model
-├── src/
-│   ├── diffusion_model.py
-│   ├── diffusion_process.py
-│   ├── diffusion_utilities.py
-│   ├── noise_schedule.py
-│   ├── score_model.py
-│   ├── score_model_generation.py
-│   ├── probability_flow_ode_likelihood.py
-│   ├── integrators/           # Euler-Maruyama, Predictor-Corrector, Probability Flow ODE
-│   ├── generation/            # class-conditional sampling, imputation
-│   └── quality/               # BPD, FID
-└── trained_models/            # ve.pth, vp_linear.pth, vp_cosine.pth
+├── diffusion_model.py
+├── diffusion_process.py
+├── diffusion_utilities.py
+├── noise_schedule.py
+├── score_model.py
+├── score_model_generation.py
+├── probability_flow_ode_likelihood.py
+├── integrators/               # Euler-Maruyama, Predictor-Corrector, Probability Flow ODE
+├── generation/                # class-conditional sampling, imputation
+├── quality/                   # BPD, FID
+└── trained_models/            # trained models (.pth) and training notebooks
 ```
 
 ## How to run
 
 ```bash
 pip install -r requirements.txt
-jupyter notebook notebooks/project.ipynb
+jupyter notebook project.ipynb
 ```
 
-MNIST is downloaded automatically by `torchvision`. The trained models are in `trained_models/`. To retrain them, run the notebooks in `notebooks/training/`.
+MNIST is downloaded automatically by `torchvision`. The trained models are in `trained_models/`, together with the notebooks used to train them.
 
 ## Credits
 
